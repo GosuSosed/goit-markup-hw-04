@@ -89,6 +89,14 @@ h1,h2,h3,h4,h5,h6 {
 .list-nav {
     display: flex;
 }
+.nav-link-primary::after {
+    display: block;
+    content: "";
+    max-width: 77px;
+    height: 4px;
+    background: var(--accent-text-color);
+    border-radius: 2px;
+}
 .list-nav-link:not(:last-child){
     margin-right: 50px;
 } 
@@ -119,16 +127,9 @@ h1,h2,h3,h4,h5,h6 {
     align-items: center;
 }
 .adress-top-icon {
+    fill: var(--secondary-text-color);
     margin-right: 10px;
 }
-/* .adress-top-icon {
-    width: 10px;
-    height: 15px;
-    fill: var(--secondary-text-color);
-} */
-/* .adress-top-icon::before {
-    margin-right: 10px;
-} */
 .adress-top .link:not(:last-child) {
     margin-right: 30px;
 }
@@ -139,10 +140,17 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 1.15;
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .adress-top .link:hover,
 .adress-top .link:focus {
     color: var(--accent-text-color);
+}
+.adress-top .link:hover .adress-top-icon,
+.adress-top .link:focus .adress-top-icon {
+    fill: var(--accent-text-color);
 }
  
 /* основная инфо страницы студио */
@@ -153,6 +161,8 @@ h1,h2,h3,h4,h5,h6 {
     rgba(47, 48, 58, 0.8),
     rgba(47, 48, 58, 0.8)),
     url(../images/Header-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 200px;
     padding-bottom: 200px;
 }
@@ -194,11 +204,15 @@ h1,h2,h3,h4,h5,h6 {
 .feature-list-item:not(:last-child) {
     margin-right: 30px;
 }
-.feature-img {
-    width: 270px;
-    background-color: var(--team-bg-color);
+.bg-feature-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
     border-radius: 4px;
+    background-color: var(--team-bg-color);
+    width: 270px;
+    height: 120px;
 }
 .feature-title {
     font-weight: 700;
@@ -220,6 +234,9 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 1.16;
     text-align: center;
     color: var(--main-text-color);
+}
+.we-do {
+    padding-top: 0px;
 }
 .we-do-title {
     margin-bottom: 50px;
@@ -266,6 +283,11 @@ h1,h2,h3,h4,h5,h6 {
 .team-list-person {
     width: 270px;
     background-color: var(--main-bg-color);
+    box-shadow: 
+    0px 2px 1px rgba(0, 0, 0, 0.2), 
+    0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 0px 0px 4px 4px;
 }
 .team-list-person:not(:last-child) {
     margin-right: 30px;
@@ -299,12 +321,25 @@ h1,h2,h3,h4,h5,h6 {
     margin-right: 10px;
 }
 .team-link {
+    display: flex;
     width: 44px;
     height: 44px;
+    justify-content: center;
+    align-items: center;
+}
+.team-social-link-svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--secondary-bg-color);
 }
 .team-link:hover,
 .team-link:focus {
-    color: var(--accent-text-color);
+    border-radius: 50%;
+    background-color: var(--accent-text-color);
+}
+.team-link:hover .team-social-link-svg,
+.team-link:focus .team-social-link-svg{
+    fill: var(--main-bg-color);
 }
 .clients {
     text-align: center;
@@ -320,11 +355,16 @@ h1,h2,h3,h4,h5,h6 {
     justify-content: center;
     align-items: center;
 }
+.clients-name-svg {
+    fill: var(--secondary-bg-color);
+}
 .clients-link:hover,
 .clients-link:focus {
-    width: 170px;
-    height: 90px;
-    background-color: var(--accent-text-color);
+    border: 1px solid var(--accent-text-color);
+}
+.clients-link:hover .clients-name-svg,
+.clients-link:focus .clients-name-svg {
+    fill: var(--accent-text-color);
 }
 .clients-list {
     display: flex;
@@ -377,12 +417,22 @@ h1,h2,h3,h4,h5,h6 {
     margin-right: 10px;
 }
 .social-link {
+    display: flex;
     width: 44px;
     height: 44px;
+    fill: var(--main-bg-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.social-link-svg {
+    width: 20px;
+    height: 20px;
 }
 .social-link:hover,
 .social-link:focus {
-    color: var(--accent-text-color);
+    background-color: var(--accent-text-color);
 }
 .action {
     font-weight: 700;
@@ -394,6 +444,7 @@ h1,h2,h3,h4,h5,h6 {
     margin-bottom: 20px;
 }
 .button-main-bot {
+    display: flex;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.87;
@@ -402,7 +453,8 @@ h1,h2,h3,h4,h5,h6 {
     letter-spacing: 0.06em;
     color: var(--main-bg-color);
     background-color: var(--accent-text-color);
-    display: flex;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
 }
 .follow {
     display: flex;
@@ -411,7 +463,10 @@ h1,h2,h3,h4,h5,h6 {
     margin-right: 10px;
 }
 .envelope {
+    width: 24px;
+    height: 24px;
     margin-left: 10px;
+    fill: var(--main-bg-color);
 }
 
 /* разметка страницы портфолио */
@@ -445,13 +500,20 @@ margin-right: 10px;
     padding-left: 22px;
 }
 .filters-name:hover,
-.filters-name:hover {
+.filters-name:focus {
     background-color: var(--accent-text-color);
     color: var(--main-bg-color);
+    box-shadow: 
+    0px 2px 2px rgba(0, 0, 0, 0.12),
+    0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 .project:hover,
 .project:focus {
   background-color: var(--portfolio-accent-color);
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 
+  0px 4px 4px rgba(0, 0, 0, 0.06), 
+  0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 .projects-list {
     display: flex;
